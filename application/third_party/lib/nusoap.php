@@ -2212,7 +2212,7 @@ class soap_transport_http extends nusoap_base {
 	* @access public
 	*/
 	function __construct($url, $curl_options = NULL, $use_curl = false){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->debug("ctor url=$url use_curl=$use_curl curl_options:");
 		$this->appendDebug($this->varDump($curl_options));
 		$this->setURL($url);
@@ -6575,7 +6575,7 @@ class nusoap_parser extends nusoap_base {
 	* @access   public
 	*/
 	function __construct($xml,$encoding='UTF-8',$method='',$decode_utf8=true){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->xml = $xml;
 		$this->xml_encoding = $encoding;
 		$this->method = $method;
