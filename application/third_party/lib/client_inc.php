@@ -8,7 +8,7 @@ class config
 		//startSmsNotification Configs
 		public $kmp_start_stop_sms_notification_service_endpoint="http://svc.safaricom.com:8310/SmsNotificationManagerService/services/SmsNotificationManager"; //endpoint on SDP
 		public $kmp_start_stop_sms_notification_service_log_soap_messages=1; // log request and responses to the server
-		public $kmp_start_stop_sms_notification_service_log_file_prefix="/tmp/StartStopSmsNotification_"; //log file prefix, timestamp will be appended to log file
+		public $kmp_start_stop_sms_notification_service_log_file_prefix="StartStopSmsNotification_"; //log file prefix, timestamp will be appended to log file
 		public $kmp_start_stop_sms_notification_service_debug=0; // 1 - debug string to be included, 0 do not include debug str. 
 
 		//sendSMS Configs

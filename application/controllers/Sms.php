@@ -32,7 +32,8 @@ class Sms extends CI_Controller
 			{
 							
                 $result=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,"254713154085",$correlator,$kmp_code,$kmp_message);
-                var_dump($result);
-				$result=$this->sdp->getSmsDeliveryStatus($this->data->spid,$this->generatesppwd(),6014562000157375,$this->data->timestamp,$result["ResultDetails"] ["result"]);
+              	echo $result["ResultDetails"] ["result"]."<br />";
+				$result=$this->sdp->getSmsDeliveryStatus($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$result["ResultDetails"] ["result"]);
+				var_dump($result);
 			}
 	}
