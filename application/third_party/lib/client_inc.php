@@ -14,7 +14,7 @@ class config
 		//sendSMS Configs
 		public $kmp_send_sms_service_endpoint="http://svc.safaricom.com:8310/SendSmsService/services/SendSms"; //endpoint on SDP
 		public $kmp_send_sms_notify_delivery=1; // 1 - send delivery receipts to $kmp_sms_notify_service_endpoint, 0 do not send
-		public $kmp_send_sms_notify_service_endpoint="https://159.65.85.14/test.php";
+		public $kmp_send_sms_notify_service_endpoint="http://159.65.85.14/sdp/sms/notify";
 		public $kmp_send_sms_service_max_recipient=10; //maximum number of recipients in a single send sms request
 		public $kmp_send_sms_service_log_soap_messages=1; // log request and responses to the server
 		public $kmp_send_sms_service_log_file_prefix="SendSms_"; //log file prefix, timestamp will be appended to log file

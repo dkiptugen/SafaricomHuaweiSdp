@@ -137,10 +137,10 @@ class SDPService{
 	*/
 	function stopSmsNotification($kmp_spid,$kmp_sppwd,$kmp_service_id,$kmp_timestamp,$kmp_correlator){
 			
-		global $kmp_start_stop_sms_notification_service_endpoint;
-		global $kmp_start_stop_sms_notification_service_log_soap_messages;
-		global $kmp_start_stop_sms_notification_service_log_file_prefix;
-		global $kmp_start_stop_sms_notification_service_debug;
+		$kmp_start_stop_sms_notification_service_endpoint			=	$this->con->kmp_start_stop_sms_notification_service_endpoint;
+		$kmp_start_stop_sms_notification_service_log_soap_messages	=	$this->con->kmp_start_stop_sms_notification_service_log_soap_messages;
+		$kmp_start_stop_sms_notification_service_log_file_prefix    =	$this->con->kmp_start_stop_sms_notification_service_log_file_prefix;
+		$kmp_start_stop_sms_notification_service_debug    			=	$this->con->kmp_start_stop_sms_notification_service_debug;
 
 		$bodyxml = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 					xmlns:v2="http://www.huawei.com.cn/schema/common/v2_1" 
