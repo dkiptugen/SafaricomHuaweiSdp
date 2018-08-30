@@ -82,7 +82,7 @@
   
   <service name="DataSyncService">
     <port name="DataSyncPort" binding="tns:DataSyncBinding">
-	  <soap:address location="http://localhost/test/integrated_services.php" />
+	  <soap:address location="http://localhost/sdp/sms/datasync" />
 	</port>
   </service>
 </definitions>
