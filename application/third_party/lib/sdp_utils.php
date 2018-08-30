@@ -227,7 +227,7 @@ class SDPService{
 	* Associative array with: ResultCode, ResultDesc, and ResultDetails 
 	* ResultDetails - for sucessful code (0), the value is an array and ResultDetails['result'] gives the request identifier that can be used in querying delivery status.
 	*/
-	function sendSms($kmp_spid,$kmp_sppwd,$kmp_service_id,$kmp_timestamp,$kmp_recipients,$kmp_correlator,$kmp_code,$kmp_message)
+	function sendSms($kmp_spid,$kmp_sppwd,$kmp_service_id,$kmp_timestamp,$kmp_recipients,$kmp_correlator,$kmp_code,$kmp_message,$lid=NULL)
 		{
 	
 			//parameters set in the client_inc.php configuration file
@@ -245,6 +245,7 @@ class SDPService{
 							xmlns:v2="http://www.huawei.com.cn/schema/common/v2_1" 
 							xmlns:loc="http://www.csapi.org/schema/parlayx/sms/send/v2_2/local"> <soapenv:Header> <v2:RequestSOAPHeader>
 							<spId>'.$kmp_spid.'</spId>
+							<linkid>'.$lid.'</linkid>
 							<spPassword>'.$kmp_sppwd.'</spPassword>
 							<serviceId>'.$kmp_service_id.'</serviceId>
 							<timeStamp>'.$kmp_timestamp.'</timeStamp>';
@@ -333,6 +334,7 @@ class SDPService{
 					}
 					$data = $timestamp."|".$operation."|".$request."|".$response."|".$debug_str."\n";
 					$this->writeToFile($service_log_file,$data);
+					$this->writeToFile("send_response",json_encode($result));
 				}
 			
 			//check for fault and return
@@ -480,7 +482,7 @@ class SDPService{
 			file_put_contents(APPPATH.'logs/'.$file,  $data, FILE_APPEND);
 		}
 		else{
-			file_put_contents(APPPATH.'logs/'.$file, $data);
+			file_put_contents(APPPATH.'logs/'.$file, $data, FILE_APPEND);
 		}
 	}
 	

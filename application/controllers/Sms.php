@@ -32,13 +32,16 @@ class Sms extends CI_Controller
 			{
 				return md5($this->data->spid.$this->data->pass.$this->data->timestamp);
 			}
-		public function sendsms($service_id,$correlator,$kmp_code,$kmp_message)
+		public function sendsms()
 			{
-							
-                $result=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,"254713154085",$correlator,$kmp_code,$kmp_message);
-    //           	echo $result["ResultDetails"] ["result"]."<br />";
-				// $result=$this->sdp->getSmsDeliveryStatus($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$result["ResultDetails"] ["result"]);
-				var_dump($result);
+				$message        = 	$this->input->post("msg");
+				$telno          =   $this->input->post("telno");
+				$service_id 	= 	6014562000157375;
+				$correlator 	= 	2027020270;
+				$kmp_code   	=	20270;				
+				$linkid			=	$this->input->post("linkid")?$this->input->post("linkid"):NULL;		
+                $result=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$telno,$correlator,$kmp_code,$message,$linkid);
+        		print_r($result);
 			}
 		public function notify()
 			{
