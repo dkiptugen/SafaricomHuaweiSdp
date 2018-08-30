@@ -81,7 +81,7 @@
   
   <service name="SmsNotifyService">
 	<port name="SmsNotificationPort" binding="tns:SmsNotificationBinding">
-	  	<soap:address location="http://localhost/test/notifyservice.php" />
+	  	<soap:address location="http://localhost/sdp/sms/notify" />
 	</port>
   </service>
 </definitions>
