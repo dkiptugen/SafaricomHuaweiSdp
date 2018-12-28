@@ -36,11 +36,22 @@ class Sms extends CI_Controller
 			{
 				$message        = 	$this->input->post("msg");
 				$telno          =   $this->input->post("telno");
-				$service_id 	= 	6014562000157375;
+				$service_id 	= 	6014562000157375;//6014562000160240;
 				$correlator 	= 	2027020270;
 				$kmp_code   	=	20270;				
-				$linkid			=	$this->input->post("linkid")?$this->input->post("linkid"):NULL;		
-                $result=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$telno,$correlator,$kmp_code,$message,$linkid);
+				$linkid			=	$this->input->post("linkid")?$this->input->post("linkid"):NULL;	
+				if(is_array($telno))
+					{
+						foreach ($telno as $no) 
+							{
+								$result[]=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$no,$correlator,$kmp_code,$message,$linkid);
+							}
+					}
+				else
+					{
+						$result=$this->sdp->sendSms($this->data->spid,$this->generatesppwd(),$service_id,$this->data->timestamp,$telno,$correlator,$kmp_code,$message,$linkid);
+					}	
+                
         		print_r($result);
 			}
 		public function notify()

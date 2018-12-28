@@ -254,7 +254,7 @@ class SDPService{
 			if(isset($kmp_recipients))
 				{
 					//if the recipient is one number, we include the OA and FA parameter in the SOAP header
-					if(!is_array($kmp_recipients))
+					if(!is_array($kmp_recipients)|| empty($kmp_recipients))
 						{ 
 							$bodyxml.='<v2:OA>tel:'.$kmp_recipients.'</v2:OA><v2:FA>tel:'.$kmp_recipients.'</v2:FA>';						
 						}
